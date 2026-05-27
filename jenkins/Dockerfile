@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     docker-compose \
+    curl \
     && apt-get clean
 
 RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
@@ -16,11 +17,10 @@ RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/
 RUN pip3 install \
     flake8==7.2.0 \
     pip-audit==2.7.3 \
-    pytest==8.3.5 \
+    pytest==9.0.3 \
     --break-system-packages
 
-ARG DOCKER_GID=999
+ARG DOCKER_GID=988
 RUN groupmod -g ${DOCKER_GID} docker && usermod -aG docker jenkins
 
 USER jenkins
-

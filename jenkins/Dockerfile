@@ -5,10 +5,13 @@ RUN apt-get update && apt-get install -y \
     docker.io \
     python3 \
     python3-pip \
+    python3-venv \
     nodejs \
     npm \
     docker-compose \
     && apt-get clean
+
+RUN curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
 
 RUN pip3 install \
     flake8==7.2.0 \

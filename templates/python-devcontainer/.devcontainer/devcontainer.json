@@ -1,0 +1,17 @@
+{
+  "name": "Python Project",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "test -f requirements.txt && pip install -r requirements.txt || echo 'No requirements yet'",
+  "forwardPorts": [8000],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "humao.rest-client",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  }
+}
